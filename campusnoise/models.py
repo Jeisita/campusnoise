@@ -3,9 +3,14 @@ from django.db import models
 
 class Lugar(models.Model):
     TIPOS_ESPACIO = [
-        ('Biblioteca', 'Biblioteca'),
-        ('Cafeteria', 'Cafetería'),
-        ('Sala', 'Sala de estudio'),
+        ("biblioteca", "Biblioteca"),
+        ("cafeteria", "Cafetería"),
+        ("aula", "Aula"),
+        ("zona_estudio", "Zona de estudio"),
+        ("laboratorio", "Laboratorio"),
+        ("auditorio", "Auditorio"),
+        ("sala_grupal", "Sala de trabajo grupal"),
+        ("terraza", "Terraza"),
     ]
 
     nombre = models.CharField(max_length=100)
