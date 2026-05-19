@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <h1 class="text-danger">
+            Eliminar Lugar
+        </h1>
+
+        <p>
+            ¿Seguro que deseas eliminar este lugar?
+        </p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <button type="submit"
+                    class="btn btn-danger">
+                Eliminar
+            </button>
+
+            <a href="/"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

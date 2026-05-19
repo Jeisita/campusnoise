@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <a href="/"
+           class="btn btn-secondary mb-3">
+            Volver al Inicio
+        </a>
+
+        <h1 class="mb-3">
+            {{ lugar.nombre }}
+        </h1>
+
+        <p>
+            <strong>Edificio:</strong>
+            {{ lugar.edificio }}
+        </p>
+
+        <p>
+            <strong>Tipo:</strong>
+            {{ lugar.tipo_espacio }}
+        </p>
+
+        <p>
+            <strong>Descripción:</strong>
+            {{ lugar.descripcion }}
+        </p>
+
+        <div class="mb-4">
+
+            <a href="{% url 'editar_lugar' lugar.id %}"
+               class="btn btn-custom">
+                Editar
+            </a>
+
+            <a href="{% url 'eliminar_lugar' lugar.id %}"
+               class="btn btn-danger">
+                Eliminar
+            </a>
+
+            <a href="{% url 'crear_reporte' %}"
+               class="btn btn-custom">
+                Nuevo Reporte
+            </a>
+
+        </div>
+
+        <hr>
+
+        <h3>Reportes recientes</h3>
+
+        <ul class="list-group">
+
+            {% for reporte in lugar.reporteruido_set.all %}
+
+                <li class="list-group-item">
+
+                    <strong>Ruido:</strong>
+                    {{ reporte.nivel_ruido }}
+
+                    |
+
+                    <strong>Ocupación:</strong>
+                    {{ reporte.ocupacion }}
+
+                </li>
+
+            {% empty %}
+
+                <li class="list-group-item">
+                    No hay reportes.
+                </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Lugares disponibles</h1>
+
+    <a href="{% url 'crear_lugar' %}"
+       class="btn btn-custom">
+        Crear Lugar
+    </a>
+</div>
+
+<div class="row">
+
+    {% for lugar in lugares %}
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow-sm h-100">
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    {{ lugar.nombre }}
+                </h5>
+
+                <p class="card-text">
+                    <strong>Edificio:</strong>
+                    {{ lugar.edificio }}
+                </p>
+
+                <p class="card-text">
+                    <strong>Tipo:</strong>
+                    {{ lugar.tipo_espacio }}
+                </p>
+
+                <a href="{% url 'detalle_lugar' lugar.id %}"
+                   class="btn btn-custom">
+                    Ver detalle
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
